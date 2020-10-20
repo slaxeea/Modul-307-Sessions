@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Mini-Game";
+    Layout = "~/Views/Shared/Layout.cshtml";
+    string a = Convert.ToString(Session["number"]);
+
+    string b = Convert.ToString(Session["counter"]);
+    if (String.IsNullOrEmpty(b))
+    {
+        Session.Add("counter", 0);
+    }
+
+    if (String.IsNullOrEmpty(a))
+    {
+        Random rnd = new Random();
+        Session.Add("number", rnd.Next(0, 100));
+
+    }
+
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+
+    if (true)
+    {
+        string correct = Convert.ToString(Session["correct"]);
+
+        if (correct != "correct")
+        {
+
+            <h3>Let's play a game, alright?</h3>
+            <br />
+            <h4>Input any number between 1 and 100</h4>
+            <br />
+            <form method="post" action="/Home/Index">
+                <input type="text" name="input" required maxlength="3" />
+                <input type="submit" />
+            </form>
+
+            <br />
+            <br />
+            <p>@Session["text"]</p>
+            <br />
+            <br />
+            <p>Counter: @Session["counter"]</p>
+            <br />
+            <br />
+        }
+        else
+        {
+            <h3>You Win haha</h3>
+            <br />
+
+            }
+        }
+    }
