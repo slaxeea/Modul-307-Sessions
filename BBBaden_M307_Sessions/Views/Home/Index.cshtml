@@ -35,9 +35,21 @@
             <h4>Input any number between 1 and 100</h4>
             <br />
             <form method="post" action="/Home/Index">
+                <!--
                 <input type="text" name="input" required maxlength="3" />
+                -->
+                <input type="range" name="input" min="0" max="100" onchange="updateTextInput(this.value);">
+                <br />
+                <input type="text" id="textInput" value="">
+
                 <input type="submit" />
             </form>
+            
+            <script>
+                function updateTextInput(val) {
+                    document.getElementById('textInput').value = val;
+                }
+            </script>
 
             <br />
             <br />
@@ -53,6 +65,9 @@
             <h3>You Win haha</h3>
             <br />
 
-            }
+            <br />
+            <br />
+            <h4>You needed @Session["counter"] tries</h4>
         }
     }
+}
